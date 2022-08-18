@@ -74,9 +74,9 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="relative w-screen max-h-screen  min-h-screen  ">
-      <div className="overflow-auto h-4/5 ">
+      <div className="overflow-auto sm:h-5/6 lg:h-4/5">
        
-        <h1 className="text-3xl font-bold underline italic text-center bg-gray-300 py-5 mb-3 sticky top-0 ">Messages 
+        <h1 className="text-3xl font-bold underline italic lg:text-center bg-gray-300 py-5 mb-3 sticky top-0 ">Messages 
         </h1>
         <div className="absolute right-4 top-2 flex flex-row justify-end">
          <h3 className="my-auto right-12 text-green-500 font-bold"><span className="font-bold text-purple-500 text-xl">Welcome, </span>{authC.state.user.email}</h3>
@@ -102,7 +102,7 @@ const handleSubmit = async (e) => {
       </div>
    
       
-      <div className="absolute bottom-0 right-0 left-0 bg-gray-300 px-4 py-2 mt-2">
+      <div className=" absolute bottom-0 right-0 left-0 bg-gray-300 lg:px-4 py-2 mt-2">
             <div className="flex space-x">
               <div className="flex-shrink-0">
                 
@@ -122,13 +122,13 @@ const handleSubmit = async (e) => {
                         setMessage(e.target.value);
                       }}
                        rows={3}
-                      className="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border border-gray-300 rounded-md p-1"
+                      className="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border border-gray-300 rounded-md p-2"
                      
                        defaultValue={""}
                     >
                       </textarea>
                   </div>
-                  <div className="mt-3 flex items-center justify-between content-end">
+                  <div className="lg:mt-3  flex items-center justify-between content-end">
                     <a
                       href="#"
                       className="group inline-flex items-start text-sm space-x-2 text-gray-500 hover:text-gray-900"

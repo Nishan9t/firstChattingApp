@@ -161,7 +161,7 @@ export default function ContactsComponent() {
   //   },
   // ];
   return (
-    <div className=" w-1/4 bg-gray-300 max-h-screen overflow-auto border-r-4 border-green-300 ">
+    <div className=" w-1/4 bg-gray-300 max-h-screen sm:w-1/3 overflow-auto border-r-4 border-green-300 ">
       <div>
        
         <div className="mt-4 relative flex items-center px-6 flex">
