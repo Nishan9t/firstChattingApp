@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot, orderBy, query, startAt, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import UserChatCardComponent from "./UserChatCardComponent";
@@ -6,7 +6,7 @@ import UserChatCardComponent from "./UserChatCardComponent";
 export default function ContactsComponent() {
 
   const [users,setUsers]=useState([]);
-
+ 
   useEffect(()=>{
     getAllUsers();
   },[])
@@ -18,6 +18,41 @@ export default function ContactsComponent() {
     })
     console.log(usersList)
     setUsers(usersList);
+  }
+
+  // async function getByLetters(user){
+    
+  //   const usersSnapshot = collection(db, "users");
+
+  // const q = query(usersSnapshot,where("name","==",user));
+  // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  //   const usersList = querySnapshot.docs.map((doc) => {
+  //     return doc.data();
+  //   });
+  //   console.log("users List", usersList);
+  //   setUsers(usersList)
+    
+  // });
+
+  // }
+
+
+//to order wise give the contacts by inputting in search bar
+  async function getByLetters(user){
+    
+    const usersSnapshot = collection(db, "users");
+
+  const q = query(usersSnapshot,orderBy("name"),startAt(user));
+  const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const usersList = querySnapshot.docs.map((doc) => {
+      return doc.data();
+    });
+    console.log("users List", usersList);
+    setUsers(usersList)
+    
+  });
+
+  
   }
 
 
@@ -126,21 +161,28 @@ export default function ContactsComponent() {
   //   },
   // ];
   return (
-    <div className="w-1/4 bg-gray-100 min-h-screen">
+    <div className=" w-1/4 bg-gray-300 max-h-screen overflow-auto border-r-4 border-green-300 ">
       <div>
        
-        <div className="mt-1 relative flex items-center px-6">
+        <div className="mt-4 relative flex items-center px-6 flex">
           <input 
             type="text"
             name="search"
             id="search"
             placeholder="Search Users"
-            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md px-2"
+            
+            onChange={(e)=>{
+            //  setUser(e.target.value)
+            // console.log(e.target.value)
+             getByLetters(e.target.value)
+            }}
+            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-sm px-2"
           />
-          
+         
         </div>
+        
       </div>
-      <div className="space-y-6   divide-y divide-gray-300">
+      <div className="space-y-4 divide-y divide-gray-800">
         {users.map((user) => {
           return <UserChatCardComponent user={user} />;
         })}

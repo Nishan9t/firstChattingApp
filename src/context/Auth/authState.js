@@ -9,13 +9,30 @@ import {setDoc,doc} from "firebase/firestore";
 
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import toast from "react-hot-toast";
 
 export const AuthState = (props) => {
 
   const [error,setError]=useState(null)
 
-  const [state,setState]=useState(false)
+  const [state,setState]=useState(false);
+
+  useEffect(()=>{
+    setState(getInitialState());
+  },[])
+
+  const getInitialState=()=>{
+    return localStorage.getItem("userCredentials")
+    ?JSON.parse(localStorage.getItem("userCredentials"))
+    : false;
+  }
+
+  function logout()
+  {
+    localStorage.setItem("userCredentials",JSON.stringify(false))
+    setState(false);
+  }
 
 
   const createUserInFirebase=async(email,password,name)=>{
@@ -30,6 +47,7 @@ export const AuthState = (props) => {
       });
 
       setState(userCredential);
+      
       }
     ).catch((e)=>{
       setError(e.message);
@@ -41,9 +59,11 @@ export const AuthState = (props) => {
      (userCredential)=>{
       console.log(userCredential.user.uid)
       setState(userCredential);
+      localStorage.setItem("userCredentials",JSON.stringify(userCredential));
      }
     ).catch((e)=>{
       setError(e.message);
+      toast.error(error);
     })
     
   }
@@ -55,6 +75,7 @@ export const AuthState = (props) => {
   return (
    <AuthContext.Provider value={{
     state:state,
+    logout:logout,
     createUserInFirebase:createUserInFirebase,
     signInMethod:signInMethod,
     error:error,

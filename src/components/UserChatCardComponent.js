@@ -2,7 +2,7 @@ import React from "react";
 
 export default function UserChatCardComponent({ user }) {
   return (
-    <div href="#" className="flex-shrink-0 group block pt-6 px-10">
+    <div href="#" className="flex-shrink-0 group block pt-6 px-10 ">
       <div className="flex items-center">
         <div>
           <span className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-green-500">

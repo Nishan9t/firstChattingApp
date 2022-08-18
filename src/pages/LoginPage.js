@@ -19,9 +19,7 @@ function handleSubmit(e){
   temp.signInMethod(loginUser.email,loginUser.password);
 
 }
-useEffect(()=>{
-toast.error(temp.error);
-},[temp.error])
+
 
   return (
     <div>

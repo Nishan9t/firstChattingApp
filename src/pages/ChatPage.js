@@ -4,7 +4,7 @@ import MessageComponent from '../components/MessageComponent'
 
 export default function ChatPage() {
   return (
-    <div className='flex max-w-7xl mx-auto'>
+    <div className='flex '>
       <ContactsComponent/>
       <MessageComponent/>
     </div>
