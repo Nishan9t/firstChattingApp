@@ -73,12 +73,12 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="relative w-screen max-h-screen  min-h-screen  ">
-      <div className="overflow-auto sm:h-5/6 lg:h-4/5">
+    <div className="relative w-screen max-h-screen  min-h-screen ">
+      <div className="overflow-auto h-4/5">
        
-        <h1 className="text-3xl font-bold underline italic lg:text-center bg-gray-300 py-5 mb-3 sticky top-0 ">Messages 
+        <h1 className="text-3xl font-bold underline italic lg:text-center bg-gray-300 py-5 lg:mb-3 sticky top-0 p-2 ">Messages 
         </h1>
-        <div className="absolute right-4 top-2 flex flex-row justify-end">
+        <div className=" lg:absolute right-4 top-2 lg:flex lg:flex-row sm:flex sm:flex-col lg:justify-end bg-gray-300 mt-0">
          <h3 className="my-auto right-12 text-green-500 font-bold"><span className="font-bold text-purple-500 text-xl">Welcome, </span>{authC.state.user.email}</h3>
         <button className="border border-2  p-1 text-2xl m-2 border-black rounded-lg hover:bg-red-400 font-semibold" 
         onClick={()=>{

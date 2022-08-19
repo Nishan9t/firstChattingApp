@@ -161,7 +161,7 @@ export default function ContactsComponent() {
   //   },
   // ];
   return (
-    <div className=" w-1/4 bg-gray-300 max-h-screen sm:w-1/3 overflow-auto border-r-4 border-green-300 ">
+    <div className=" lg:w-1/4 bg-gray-300 max-h-screen sm:w-1/2 overflow-auto border-r-4 border-green-300 ">
       <div>
        
         <div className="mt-4 relative flex items-center px-6 flex">
@@ -176,7 +176,7 @@ export default function ContactsComponent() {
             // console.log(e.target.value)
              getByLetters(e.target.value)
             }}
-            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-sm px-2"
+            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-sm lg:px-2 sm:12"
           />
          
         </div>
