@@ -176,7 +176,7 @@ export default function ContactsComponent() {
             // console.log(e.target.value)
              getByLetters(e.target.value)
             }}
-            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-sm lg:px-2 sm:12"
+            className="shadow-sm focus:ring-indigo-500 h-12 focus:border-indigo-500 block w-full lg:pr-12 sm:text-sm border-gray-300 rounded-sm lg:px-2 sm:12"
           />
          
         </div>
